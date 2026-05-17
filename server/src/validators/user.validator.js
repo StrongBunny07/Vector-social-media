@@ -16,11 +16,28 @@ export const registerSchema = z.object({
     .refine((val) => validator.isMobilePhone(val, "any"), {
       message: "Please enter a valid phone number!",
     }),
-  password: z.string({ required_error: "Password must be at least 6 characters!" }).min(6, { message: "Password must be at least 6 characters!" }),
-  username: z.string({ required_error: "Please enter a username!" }).trim().min(1, { message: "Please enter a username!" }),
-  bio: z.string({ required_error: "Please enter a bio!" }).trim().min(1, { message: "Please enter a bio!" }),
-  description: z.string({ required_error: "Please enter a description!" }).trim().min(1, { message: "Please enter a description!" }),
-  isPrivate: z.boolean().optional().default(false),
+  password: z
+    .string({ required_error: "Password must be at least 6 characters!" })
+    .min(6, { message: "Password must be at least 6 characters!" 
+    }),
+  username: z
+    .string({ required_error: "Please enter a username!" })
+    .trim()
+    .min(1, { message: "Please enter a username!" 
+    }),
+  bio: z
+    .string({ required_error: "Please enter a bio!" })
+    .trim()
+    .optional(),
+  description: z
+    .string({ required_error: "Please enter a description!" })
+    .trim()
+    .min(1, { message: "Please enter a description!" 
+    }),
+  isPrivate: z
+    .boolean()
+    .optional()
+    .default(false),
 });
 
 export const loginSchema = z.object({

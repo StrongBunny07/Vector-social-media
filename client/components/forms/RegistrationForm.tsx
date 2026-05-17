@@ -71,9 +71,6 @@ export default function RegistrationForm() {
     if (!username.trim()) {
       return toast.warn("Enter username");
     }
-    if (!bio.trim()) {
-      return toast.warn("Enter bio");
-    }
     if (!description.trim()) {
       return toast.warn("Enter description");
     }
